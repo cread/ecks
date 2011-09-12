@@ -30,13 +30,15 @@ that can access the host as well.
 
 ## Usage
 
-    >>> import ecks
-    >>> e = ecks.Ecks()
-    >>> e.get_data('127.0.0.1', 'public', 'disk')
-    [(2, 'Physical memory', 8589934592, 5169360896), (3, 'Swap space', 134213632, 45056), (4, '/', 290984034304, 243201781760)]
-    >>> e.get_data('127.0.0.1', 'public', 'cpu')
-    (21, 9, 68)
-    >>> e.get_data('127.0.0.1', 'public', 'uptime')
-    18879153
+```python
+>>> import ecks
+>>> e = ecks.Ecks()
+>>> e.get_data('127.0.0.1', 'public', 'disk')
+[(2, 'Physical memory', 8589934592, 5169360896), (3, 'Swap space', 134213632, 45056), (4, '/', 290984034304, 243201781760)]
+>>> e.get_data('127.0.0.1', 'public', 'cpu')
+(21, 9, 68)
+>>> e.get_data('127.0.0.1', 'public', 'uptime')
+18879153
+```
 
 This shows how easy it is to get the data out of the system. What you do with it then is up to you...
