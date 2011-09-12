@@ -4,15 +4,19 @@ A simple way to get data out of a remote machine using SNMP without having to de
 
 The goal of Ecks is simple - make it really easy to get get any data from an SNMP service.
 
-Ecks is made up of a core class that will collect data via SNMP,
+Ecks is made up of a core class that will collect data via SNMP, 
 and a set of plugins that contain the OID and the code needed to
 transform the results from nested OID's to usable data.
+
+For far too long people have been abusing their servers by connecting to them using SSH 
+and then scraping the output of processes like `df`, `free`, `uptime` and `netstat` to find out what their
+machines are up to. They do this because it's easier than using SNMP. Ecks now makes the right way the easy way...
 
 ## Installation
 
 The easiest way to install Ecks is:
 
-```
+```shell
 pip install ecks
 ```
 
@@ -56,3 +60,21 @@ that can access the host as well.
 Note that the last two method calls are interchangable.
 
 This shows how easy it is to get the data out of the system. What you do with it then is up to you...
+
+I currently use this library to feed our internal time series monitoring system and send email alerts 
+when certain thresholds are crossed.
+
+## Plugins
+
+All the hard work is done by the plugins. Currently I have working plugins for:
+
+* CPU Utilization 
+* Disk Utilization (think `df -k`)
+* Load average (think `uptime`)
+* Memory Utilization (think `free`)
+* Network Interface Counters (think `ifconfig`)
+* Process Tree (think `ps -ef`)
+* TCP Connections (think `netstat -an -p tcp`)
+* Uptime (you guessed it - think `uptime`)
+
+More plugins coming soon (and more info on how to create your own)...
