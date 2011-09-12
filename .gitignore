@@ -1,2 +1,5 @@
 *.pyc
 .idea/workspace.xml
+Ecks.egg-info/
+build/
+dist/
