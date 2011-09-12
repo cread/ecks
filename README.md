@@ -30,6 +30,7 @@ that can access the host as well.
 
 ## Usage
 
+```python
     >>> import ecks
     >>> e = ecks.Ecks()
     >>> e.get_data('127.0.0.1', 'public', 'disk')
@@ -38,5 +39,6 @@ that can access the host as well.
     (21, 9, 68)
     >>> e.get_data('127.0.0.1', 'public', 'uptime')
     18879153
+```
 
 This shows how easy it is to get the data out of the system. What you do with it then is up to you...
