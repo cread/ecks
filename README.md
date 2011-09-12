@@ -10,6 +10,16 @@ transform the results from nested OID's to usable data.
 
 ## Installation
 
+The easiest way to install Ecks is:
+
+```
+pip install ecks
+```
+
+You can also clone the repository and run `python setup.py install`
+
+## Requirements
+
 The python requirements to use the library are:
 
 * Python 2.6 or higher
@@ -39,6 +49,10 @@ that can access the host as well.
 (21, 9, 68)
 >>> e.get_data('127.0.0.1', 'public', 'uptime')
 18879153
+>>> e.get_uptime('127.0.0.1', 'public')
+18879153
 ```
+
+Note that the last two method calls are interchangable.
 
 This shows how easy it is to get the data out of the system. What you do with it then is up to you...
