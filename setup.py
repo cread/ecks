@@ -49,6 +49,6 @@ setup(
   license = "Apache 2.0",
   packages = find_packages(),
   keywords = "snmp monitoring",
-  install_requires = "pysnmp >= 4.1.16a"
+  install_requires = "pysnmp >= 4.1.8a"
 )
 
