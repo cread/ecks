@@ -76,5 +76,6 @@ All the hard work is done by the plugins. Currently I have working plugins for:
 * Process Tree (think `ps -ef`)
 * TCP Connections (think `netstat -an -p tcp`)
 * Uptime (you guessed it - think `uptime`)
+* TCP Stack Statistics
 
 More plugins coming soon (and more info on how to create your own)...
