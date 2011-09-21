@@ -26,7 +26,7 @@
     limitations under the License.
 """
 
-__version__ = '0.2'
+__version__ = '0.3'
 __author__ = 'Chris Read <chris.read@gmail.com>'
 
 from ecks import Ecks

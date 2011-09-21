@@ -1,0 +1,63 @@
+#!/bin/bash
+
+# Find out where we are
+BASEDIR=$(cd $(dirname $0) && /bin/pwd)
+
+FORCE=$1
+
+check() {
+  CMD=$1
+  shift
+  GREP="$@"
+  (cd $BASEDIR && git $CMD) | grep -q "$GREP"
+  return $?
+}
+
+check_status() {
+  check "status" "^nothing to commit"
+
+  if [ $? -eq 1 ]; then
+    echo "ERROR - Dirty working directory"
+    return 1
+  fi  
+
+  check $1 "status" "^# Your branch is ahead of "
+
+  if [ $? -eq 0 ]; then
+    echo "ERROR - Ahead of origin"
+    return 1
+  fi  
+
+  check $1 "branch" "^* master"
+
+  if [ $? -eq 1 ]; then
+    if [ ! "$FORCE" == "--force" ]; then
+      echo "ERROR - NOT on master branch"
+      return 1
+    else
+      echo "WARNING - FORCING a release from a non master branch"
+    fi
+  fi  
+}
+
+set +e
+check_status
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+set -e
+
+VER=$(python -c "import ecks; print ecks.__version__")
+
+echo "Releasing version ${VER}"
+
+# Tag
+git tag -a "v${VER}" -m "Release version ${VER}"
+
+# Do the release
+python setup.py sdist upload
+
+# Push the tags
+git push --tags
+
+
