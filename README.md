@@ -79,3 +79,16 @@ All the hard work is done by the plugins. Currently I have working plugins for:
 * TCP Stack Statistics
 
 More plugins coming soon (and more info on how to create your own)...
+
+## Platforms
+
+All base plugins have been tested to work with the default SNMP agent for:
+
+* Solaris
+* Ubuntu
+* RedHat Enterprise Linux
+* OSX
+* Windows Server
+
+Note: For the windows systems, the load average has no meaning and so does not work.
+The way CPU and Memory are reported are different, so use `wincpu` and `winmemory` instead of `cpu` and `memory` 
