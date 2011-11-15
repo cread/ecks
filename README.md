@@ -79,3 +79,7 @@ All the hard work is done by the plugins. Currently I have working plugins for:
 * TCP Stack Statistics
 
 More plugins coming soon (and more info on how to create your own)...
+
+## Copyright
+
+Copyright (c) 2011 Chris Read. See LICENSE for details.
