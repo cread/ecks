@@ -25,9 +25,11 @@ def get_memory(parent, host, community):
     """
     memory = (1,3,6,1,4,1,2021,4) # UCD-SNMP-MIB
     data = parent.get_snmp_data(host, community, memory, 1)
-    return map(parent._build_answer,
-        parent._extract(data, int, 3),
-        parent._extract(data, int, 4),
-        parent._extract(data, int, 5),
-        parent._extract(data, int, 6),
-    )[0]
+
+    if data:
+        return map(parent._build_answer,
+            parent._extract(data, int, 3),
+            parent._extract(data, int, 4),
+            parent._extract(data, int, 5),
+            parent._extract(data, int, 6),
+        )[0]

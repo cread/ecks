@@ -25,4 +25,7 @@ def get_uptime(parent, host, community):
     uptime = (1,3,6,1,2,1,25,1,1) # HOST-RESOURCE-MIB
     data = parent.get_snmp_data(host, community, uptime, 1)
 
-    return int(data[0][2])
+    if data:
+        return int(data[0][2])
+    else:
+        return None

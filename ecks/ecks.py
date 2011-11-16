@@ -46,7 +46,8 @@ class Ecks():
 
     plugins = []
 
-    def __init__(self):
+    def __init__(self, timeout = 1):
+        self.timeout = timeout
         if logging._handlers == {}:
             logging.basicConfig()
         self.logger = logging.getLogger(__name__ + ".Ecks")
@@ -106,11 +107,11 @@ class Ecks():
         """
         error_indication, error_status, error_index, var_binds_list = cmdgen.CommandGenerator().bulkCmd(
             cmdgen.CommunityData(host, community),
-            cmdgen.UdpTransportTarget((host, 161)),
+            cmdgen.UdpTransportTarget((host, 161), timeout = self.timeout),
             0, 25, query_oid)
 
         if error_indication:
-            self.logger.warning(error_indication)
+            self.logger.error(error_indication)
         elif error_status:
             self.logger.error(
                 '%s at %s\n' % (error_status.prettyPrint(), error_index and var_binds_list[int(error_index) - 1] or '?'))

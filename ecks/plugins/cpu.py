@@ -25,8 +25,10 @@ def get_cpu(parent, host, community):
     """
     cpu = (1,3,6,1,4,1,2021,11) # UCD-SNMP-MIB
     data = parent.get_snmp_data(host, community, cpu, 1)
-    return (
-        parent._extract(data, int, 9)[0],
-        parent._extract(data, int, 10)[0],
-        parent._extract(data, int, 11)[0],
-    )
+
+    if data:
+        return (
+            parent._extract(data, int, 9)[0],
+            parent._extract(data, int, 10)[0],
+            parent._extract(data, int, 11)[0],
+        )

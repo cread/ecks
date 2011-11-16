@@ -92,3 +92,7 @@ All base plugins have been tested to work with the default SNMP agent for:
 
 Note: For the windows systems, the load average has no meaning and so does not work.
 The way CPU and Memory are reported are different, so use `wincpu` and `winmemory` instead of `cpu` and `memory` 
+
+## Copyright
+
+Copyright (c) 2011 Chris Read. See LICENSE for details.

@@ -28,6 +28,10 @@ def get_winmemory(parent, host, community):
     """
     blocks = (1,3,6,1,2,1,25,2,3,1) # HOST-RESOURCES-MIB
     data = parent.get_snmp_data(host, community, blocks, 1)
+
+    if not data:
+        return
+
     all_blocks = map(parent._build_answer,
         [t[-1] for t in parent._extract(data, tuple, 2)],
         parent._extract(data, str, 3),
