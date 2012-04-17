@@ -28,6 +28,6 @@ def get_os(parent, host, community):
     data = parent.get_snmp_data(host, community, (1,3,6,1,2,1,1,1), 1)
 
     if data:
-        return data[0][2]
+        return str(data[0][2])
     else:
         return None
