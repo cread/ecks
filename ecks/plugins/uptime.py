@@ -22,7 +22,7 @@ import re
 def get_uptime(parent, host, community):
     """ This is a plugin to be loaded by Ecks
 
-    return the number of milliseconds since the system was booted
+    return the number of TimeTicks (100ths of a second) since the system was booted
 
     Note: This plugin now corrects the bad uptime value returned in
           Windows builds < 7600 (Win 2008 R2)
