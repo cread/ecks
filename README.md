@@ -1,8 +1,10 @@
 # Ecks
 
-A simple way to get data out of a remote machine using SNMP without having to deal with a single MIB or OID.
+In the original Men in Black comics, an agent named Ecks went rogue and wanted to eliminate the MiB. This little 
+Python library has a similar aim...
 
-The goal of Ecks is simple - make it really easy to get get any data from an SNMP service.
+Ecks provides a simple way to get data out of a remote machine using SNMP without having to deal with a single MIB 
+or OID.
 
 Ecks is made up of a core class that will collect data via SNMP, 
 and a set of plugins that contain the OID and the code needed to
@@ -77,6 +79,7 @@ All the hard work is done by the plugins. Currently I have working plugins for:
 * TCP Connections (think `netstat -an -p tcp`)
 * Uptime (you guessed it - think `uptime`)
 * TCP Stack Statistics
+* OS Identification
 
 More plugins coming soon (and more info on how to create your own)...
 
@@ -95,4 +98,4 @@ The way CPU and Memory are reported are different, so use `wincpu` and `winmemor
 
 ## Copyright
 
-Copyright (c) 2011 Chris Read. See LICENSE for details.
+Copyright (c) 2011-2012 Chris Read. See LICENSE for details.
