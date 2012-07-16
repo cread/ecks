@@ -61,12 +61,12 @@ class Ecks():
         plugin_dir = os.path.join(os.path.dirname(__file__), "plugins")
         for plugin in os.listdir(plugin_dir):
             if plugin.endswith(".py") and (plugin != "__init__.py"):
-                self.logger.info("Loading file: %s" % os.path.join(plugin_dir, plugin))
+                self.logger.debug("Loading file: %s" % os.path.join(plugin_dir, plugin))
                 plugin_name = plugin[:-3]
                 try:
                     exec("import plugins.%s" % plugin_name)
                     exec("self.get_%(func)s = types.MethodType(plugins.%(func)s.get_%(func)s, self)" % {"func": plugin_name})
-                    self.logger.info("Registered plugin: %s" % plugin_name)
+                    self.logger.debug("Registered plugin: %s" % plugin_name)
                     self.plugins += [plugin_name]
                 except AttributeError as e:
                     self.logger.warn("Invalid plugin: %s" % plugin_name)
