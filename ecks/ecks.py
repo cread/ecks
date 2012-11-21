@@ -19,12 +19,6 @@ import os
 import types
 import sys
 
-try:
-    from pysnmp.entity.rfc3413.oneliner import cmdgen
-except ImportError:
-    print "ERROR: Unable to load 'pysnmp' module."
-    sys.exit(1)
-
 
 class Ecks():
     """
@@ -47,6 +41,11 @@ class Ecks():
     plugins = []
 
     def __init__(self, timeout = 1):
+        try:
+            from pysnmp.entity.rfc3413.oneliner import cmdgen
+        except ImportError:
+            print "ERROR: Unable to load 'pysnmp' module."
+
         self.timeout = timeout
         if logging._handlers == {}:
             logging.basicConfig()
