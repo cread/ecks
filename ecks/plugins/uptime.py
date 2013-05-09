@@ -40,7 +40,7 @@ def get_uptime(parent, host, community):
         # Got some data, let's check the OS now...   
         os = parent.get_os(host, community)
         # If it's Windows, check the build...
-        if ("Windows" in os) and (int(re.search("\(Build (\d+) ", os).groups()[0]) < 7600):
+        if ("Windows" in os) and (int(re.search("\(Build (\d+)", os).groups()[0]) < 7600):
             return int(data[0][2]) / 10
         else:
             return int(data[0][2])
