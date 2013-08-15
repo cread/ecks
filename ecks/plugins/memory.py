@@ -20,7 +20,7 @@
 def get_memory(parent, host, community):
     """ This is a plugin to be loaded by Ecks
 
-    return a tuple containing (total_swap, avail_swap, total_real, avail_real). Values are in kiloBytes
+    return a tuple containing (total_swap, avail_swap, total_real, avail_real, mem_buffer). Values are in kiloBytes
 
     """
     memory = (1,3,6,1,4,1,2021,4) # UCD-SNMP-MIB
@@ -32,4 +32,5 @@ def get_memory(parent, host, community):
             parent._extract(data, int, 4),
             parent._extract(data, int, 5),
             parent._extract(data, int, 6),
+            parent._extract(data, int, 14),
         )[0]
