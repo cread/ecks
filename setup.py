@@ -29,7 +29,7 @@ if sys.version < required_python_version:
 
 setup(
   name = "Ecks",
-  version = ecks.__version__,
+  version = "0.10",
   description = "Easy access to SNMP data",
   long_description = "A simple way to get data out of a remote machine using SNMP without having to deal with a single MIB or OID.",
   classifiers = [
