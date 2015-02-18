@@ -18,6 +18,10 @@ import logging
 import os
 import types
 import sys
+try:
+    from pysnmp.entity.rfc3413.oneliner import cmdgen
+except ImportError:
+    print "ERROR: Unable to load 'pysnmp' module."
 
 
 class Ecks():
@@ -99,11 +103,6 @@ class Ecks():
             If set to something that evaluates as True then it will only return
             results that match the query oid. By default it will return everything.
         """
-        try:
-            from pysnmp.entity.rfc3413.oneliner import cmdgen
-        except ImportError:
-            print "ERROR: Unable to load 'pysnmp' module."
-
         error_indication, error_status, error_index, var_binds_list = cmdgen.CommandGenerator().bulkCmd(
             cmdgen.CommunityData(host, community),
             cmdgen.UdpTransportTarget((host, 161), timeout = self.timeout),
