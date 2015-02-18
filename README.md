@@ -98,4 +98,4 @@ The way CPU and Memory are reported are different, so use `wincpu` and `winmemor
 
 ## Copyright
 
-Copyright (c) 2011-2012 Chris Read. See LICENSE for details.
+Copyright (c) 2011-2015 Chris Read. See LICENSE for details.
